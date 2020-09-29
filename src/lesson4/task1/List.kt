@@ -181,7 +181,35 @@ fun factorize(n: Int): List<Int> = TODO()
  * Результат разложения вернуть в виде строки, например 75 -> 3*5*5
  * Множители в результирующей строке должны располагаться по возрастанию.
  */
-fun factorizeToString(n: Int): String = TODO()
+fun factorizeToString(n: Int): String {
+    var c: Int = 0
+    var out: String = ""
+    var inc: Int = 2
+    var counter: Int = n
+    var numbers: MutableList<Int> = arrayListOf()
+    while (counter != 1){
+        if (counter % inc != 0){
+            inc++
+        }
+        else{
+            counter /= inc
+            numbers.add(inc)
+            inc = 2
+        }
+    }
+    for (i in numbers){
+        c++
+        if (c == numbers.size){
+            out += "$i"
+        }
+        else{
+            out +="$i*"
+        }
+    }
+    println(numbers)
+
+    return out
+}
 
 /**
  * Средняя

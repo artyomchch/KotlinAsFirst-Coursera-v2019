@@ -3,6 +3,8 @@
 package lesson2.task2
 
 import lesson1.task1.sqr
+import lesson4.task1.abs
+import kotlin.math.abs
 
 /**
  * Пример
@@ -18,7 +20,13 @@ fun pointInsideCircle(x: Double, y: Double, x0: Double, y0: Double, r: Double) =
  * Четырехзначное число назовем счастливым, если сумма первых двух ее цифр равна сумме двух последних.
  * Определить, счастливое ли заданное число, вернуть true, если это так.
  */
-fun isNumberHappy(number: Int): Boolean = TODO()
+fun isNumberHappy(number: Int): Boolean {
+    val a =  (number /1000) % 10
+    val b =  (number /100) %10
+    val c = (number /10) %10
+    val d = number %10
+    return a+b == c+d
+}
 
 /**
  * Простая
@@ -27,7 +35,16 @@ fun isNumberHappy(number: Int): Boolean = TODO()
  * Определить, угрожают ли они друг другу. Вернуть true, если угрожают.
  * Считать, что ферзи не могут загораживать друг друга.
  */
-fun queenThreatens(x1: Int, y1: Int, x2: Int, y2: Int): Boolean = TODO()
+fun queenThreatens(x1: Int, y1: Int, x2: Int, y2: Int): Boolean {
+    if (x1 == x2){
+        return true
+    }
+    else if (y1 == y2){
+        return true
+    }
+    else return abs(y1 -x1) == abs(y2 -x2)
+}
+
 
 
 /**
